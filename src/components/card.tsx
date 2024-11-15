@@ -1,4 +1,4 @@
-import './card.css';
+import MyButton from './myButton';
 
 export default function Card({
   title,
@@ -14,10 +14,10 @@ export default function Card({
   return (
     <div className="max-w-sm  p-5  ">
       {/* card */}
-      <div className="border w-64 h-96 rounded-full shadow-lg   ">
+      <div className="border w-64  rounded-full shadow-lg relative ">
         <a href="#">
           <img
-            className="rounded-t-lg w-50 pt-16 px-6 "
+            className="rounded-t-lg pt-6"
             src={image}
             alt={title}
             style={{ backgroundColor: bgColor, paddingBottom: 100 }}
@@ -29,9 +29,10 @@ export default function Card({
               {title}
             </p>
           </a>
-          <p className="flex mb-8 text-sm font-normal text-gray-700 text-left">
+          <p className="flex mb-8 text-xs font-normal text-gray-700 text-left">
             {description}
           </p>
+          <MyButton></MyButton>
         </div>
       </div>
     </div>
