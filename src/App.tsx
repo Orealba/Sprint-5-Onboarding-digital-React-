@@ -16,32 +16,46 @@ function App() {
       title: 'Dedica muchas horas',
       description:
         'Un mínimo de 30 horas a la semana. Si no tienes suficiente, tendrás que dedicarle más horas. Al principio parece imposible, pero notarás una mejoría rápidamente.',
-      bgColor: '#2596be',
+      bgColor: '#4da2a9',
       image: '../public/images/Time Management.svg',
     },
     {
       title: 'Programa proyectos propios',
       description:
         'Mejor 10 horas trabajando en proyectos propios, que 10 horas mirando tutoriales. La motivación y la implicación en el proyecto ayudará a acelerar tu aprendizaje.',
-      bgColor: '',
+      bgColor: '#d3d4d9',
       image: '../public/images/Programming (1).svg',
     },
     {
       title: 'Intenta descansar',
       description:
         'Descansar bien y desconectar es vital. De esta forma reducirás el estrés y la ansiedad. Mejorarás tu concentración y consolidarás tu aprendizaje.',
-      bgColor: '',
+      bgColor: '#fed167',
       image: '../public/images/Meditation (1).svg',
     },
   ];
   return (
     <>
-      <Card
-        image={tutorialData[0].image}
-        title={tutorialData[0].title}
-        description={tutorialData[0].description}
-        bgColor={tutorialData[0].bgColor}
-      />
+      <div className="flex d-flex space-x-6 bg-gray-100">
+        <Card
+          image={tutorialData[0].image}
+          title={tutorialData[0].title}
+          description={tutorialData[0].description}
+          bgColor={tutorialData[0].bgColor}
+        />
+        <Card
+          image={tutorialData[1].image}
+          title={tutorialData[1].title}
+          description={tutorialData[1].description}
+          bgColor={tutorialData[1].bgColor}
+        />
+        <Card
+          image={tutorialData[2].image}
+          title={tutorialData[2].title}
+          description={tutorialData[2].description}
+          bgColor={tutorialData[2].bgColor}
+        />
+      </div>
     </>
   );
 }
