@@ -5,11 +5,19 @@ export default function Card({
   description,
   bgColor,
   image,
+  onNext,
+  onPrev,
+  step,
+  totalSteps,
 }: {
   title: string;
   description: string;
   bgColor: string;
   image: string;
+  onNext: () => void;
+  onPrev: () => void;
+  step: number;
+  totalSteps: number;
 }): JSX.Element {
   return (
     <div className="max-w-sm  p-5  ">
@@ -32,7 +40,21 @@ export default function Card({
           <p className="flex mb-8 text-xs font-normal text-gray-700 text-left">
             {description}
           </p>
-          <MyButton></MyButton>
+
+          <div className="flex justify-end space-x-2">
+            {step > 0 && (
+              <MyButton
+                onClick={onPrev}
+                direction="back"
+              />
+            )}
+            {step < totalSteps - 1 && (
+              <MyButton
+                onClick={onNext}
+                direction="forward"
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

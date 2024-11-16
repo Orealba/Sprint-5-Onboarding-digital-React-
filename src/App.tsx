@@ -1,4 +1,4 @@
-//import { useState } from 'react';
+import { useState } from 'react';
 
 import './App.css';
 import Card from './components/card';
@@ -10,7 +10,7 @@ interface TutorialData {
   bgColor: string;
 }
 function App() {
-  // const [step, setStep] = useState<number>(0);
+  const [step, setStep] = useState<number>(0);
   let tutorialData: TutorialData[] = [
     {
       title: 'Dedica muchas horas',
@@ -34,26 +34,30 @@ function App() {
       image: '../public/images/Meditation (1).svg',
     },
   ];
+  let nexStep = () => {
+    if (step < tutorialData.length -1){
+      setStep(step +1);
+    }
+  };
+
+  let prevStep = () => {
+    if(step > 0){
+      setStep(step -1);
+    }
+  };
+
   return (
     <>
       <div className="flex d-flex  bg-gray-100">
         <Card
-          image={tutorialData[0].image}
-          title={tutorialData[0].title}
-          description={tutorialData[0].description}
-          bgColor={tutorialData[0].bgColor}
-        />
-        <Card
-          image={tutorialData[1].image}
-          title={tutorialData[1].title}
-          description={tutorialData[1].description}
-          bgColor={tutorialData[1].bgColor}
-        />
-        <Card
-          image={tutorialData[2].image}
-          title={tutorialData[2].title}
-          description={tutorialData[2].description}
-          bgColor={tutorialData[2].bgColor}
+          image={tutorialData[step].image}
+          title={tutorialData[step].title}
+          description={tutorialData[step].description}
+          bgColor={tutorialData[step].bgColor}
+          onNext={nexStep}
+          onPrev={prevStep}
+          step={step}
+          totalSteps={tutorialData.length}
         />
       </div>
     </>
