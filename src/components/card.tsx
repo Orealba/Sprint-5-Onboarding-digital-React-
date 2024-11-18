@@ -1,4 +1,4 @@
-import MyButton from './myButton';
+import MyButton from './MyButton';
 
 export default function Card({
   title,

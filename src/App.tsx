@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import './App.css';
-import Card from './components/card';
+import Card from './components/Card';
 
 interface TutorialData {
   image: string;
@@ -35,14 +35,14 @@ function App() {
     },
   ];
   let nexStep = () => {
-    if (step < tutorialData.length -1){
-      setStep(step +1);
+    if (step < tutorialData.length - 1) {
+      setStep(step + 1);
     }
   };
 
   let prevStep = () => {
-    if(step > 0){
-      setStep(step -1);
+    if (step > 0) {
+      setStep(step - 1);
     }
   };
 
