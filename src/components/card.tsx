@@ -41,7 +41,7 @@ export default function Card({
   return (
     <div className="max-w-sm  p-5  ">
       {/* card */}
-      <div className=" w-64  rounded shadow-lg relative card-css ">
+      <div className=" w-64  rounded shadow-lg relative ">
         <a href="#">
           <img
             className={` pt-6 ${animationClass} img-card`}
