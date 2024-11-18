@@ -10,7 +10,7 @@ export default function MyButton({ onClick, direction }: MyButtonProps) {
     <button
       type="button"
       onClick={onClick}
-      className="   font-medium rounded-full text-sm p-2 text-center inline-flex items-center  my-button-css">
+      className="   font-medium rounded-full text-sm  p-2 text-center inline-flex items-center  my-button-css">
       <svg
         className="w-4 h-4"
         aria-hidden="true"

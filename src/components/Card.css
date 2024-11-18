@@ -1,0 +1,42 @@
+.card-css{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.img-card {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  cursor: auto;
+}
+.p {
+  cursor: auto;
+}
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.image-exit {
+  animation: slideOutLeft 0.5s forwards;
+}
+
+.image-enter {
+  animation: slideInRight 0.5s forwards;
+}

@@ -1,13 +1,15 @@
 .my-button-css {
   background-color: black;
 }
-
+.my-button-css:hover .my-button-css-arrow {
+  stroke: black;
+}
 .my-button-css:hover {
   background-color: transparent;
 }
 .my-button-css-arrow {
   stroke: white;
 }
-.my-button-css-arrow:hover,:active {
-    stroke: black;
-  }
+.my-button-css-arrow:hover {
+  stroke: black;
+}

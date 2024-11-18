@@ -1,5 +1,7 @@
 import MyButton from './MyButton';
 import Indicator from './Indicator';
+import './Card.css';
+import { useState, useEffect } from 'react';
 
 export default function Card({
   title,
@@ -22,14 +24,28 @@ export default function Card({
   totalSteps: number;
   onStepChange: (index: number) => void;
 }): JSX.Element {
+  const [currentImage, setCurrentImage] = useState(image);
+  const [animationClass, setAnimationClass] = useState('image-enter');
+
+  useEffect(() => {
+    setAnimationClass('image-exit');
+
+    const timer = setTimeout(() => {
+      setCurrentImage(image);
+      setAnimationClass('image-enter');
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [step, image]);
+
   return (
     <div className="max-w-sm  p-5  ">
       {/* card */}
-      <div className="border w-64  rounded-full shadow-lg relative ">
+      <div className=" w-64  rounded shadow-lg relative card-css ">
         <a href="#">
           <img
-            className="rounded-t-lg pt-6"
-            src={image}
+            className={` pt-6 ${animationClass} img-card`}
+            src={currentImage}
             alt={title}
             style={{ backgroundColor: bgColor, paddingBottom: 100 }}
           />
