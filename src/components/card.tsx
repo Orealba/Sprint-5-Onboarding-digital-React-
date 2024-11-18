@@ -1,4 +1,5 @@
 import MyButton from './MyButton';
+import Indicator from './Indicator';
 
 export default function Card({
   title,
@@ -9,6 +10,7 @@ export default function Card({
   onPrev,
   step,
   totalSteps,
+  onStepChange,
 }: {
   title: string;
   description: string;
@@ -18,6 +20,7 @@ export default function Card({
   onPrev: () => void;
   step: number;
   totalSteps: number;
+  onStepChange: (index: number) => void;
 }): JSX.Element {
   return (
     <div className="max-w-sm  p-5  ">
@@ -40,7 +43,11 @@ export default function Card({
           <p className="flex mb-8 text-xs font-normal text-gray-700 text-left">
             {description}
           </p>
-
+          <Indicator
+            totalSteps={totalSteps}
+            step={step}
+            onStepChange={onStepChange}
+          />
           <div className="flex justify-end space-x-2">
             {step > 0 && (
               <MyButton

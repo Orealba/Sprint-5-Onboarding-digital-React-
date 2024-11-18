@@ -44,8 +44,11 @@ function App() {
     if (step > 0) {
       setStep(step - 1);
     }
+    
   };
-
+const handleStepChange = (index: number) => {
+      setStep(index);
+    };
   return (
     <>
       <div className="flex d-flex  bg-gray-100">
@@ -58,6 +61,7 @@ function App() {
           onPrev={prevStep}
           step={step}
           totalSteps={tutorialData.length}
+          onStepChange={handleStepChange}
         />
       </div>
     </>
