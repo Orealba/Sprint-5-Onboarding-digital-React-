@@ -1,13 +1,24 @@
 .my-button-css {
   background-color: black;
-  border: none;
-  border-radius: none;
+ 
+  
+  outline: none;
+  box-shadow: none;
+}
+
+.my-button-css:focus {
+  outline: none;
+  box-shadow: none;
 }
 .my-button-css:hover .my-button-css-arrow {
   stroke: black;
 }
 .my-button-css:hover {
   background-color: transparent;
+  border-color: black;
+}
+.my-button-css:active {
+  border-color: none;
 }
 .my-button-css-arrow {
   stroke: white;

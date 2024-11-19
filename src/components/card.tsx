@@ -24,35 +24,34 @@ export default function Card({
   totalSteps: number;
   onStepChange: (index: number) => void;
 }): JSX.Element {
-  const [currentImage, setCurrentImage] = useState(image);
-  const [animationClass, setAnimationClass] = useState('image-enter');
+  const [animationClass, setAnimationClass] = useState('');
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
   useEffect(() => {
-    setAnimationClass('image-exit');
+    if (isFirstRender) {
+      setIsFirstRender(false); // Desactiva la primera visualización
+    } else {
+      setAnimationClass('image-exit');
 
-    const timer = setTimeout(() => {
-      setCurrentImage(image);
-      setAnimationClass('image-enter');
-    }, 500);
-
-    return () => clearTimeout(timer);
+      const timer = setTimeout(() => setAnimationClass('image-enter'), 500);
+      return () => clearTimeout(timer);
+    }
   }, [step, image]);
 
   return (
-    <div className="max-w-sm  p-5  ">
-      {/* card */}
-      <div className=" w-64  rounded shadow-lg relative ">
+    <div className="max-w-sm p-5">
+      <div className=" w-64 rounded-full shadow-lg relative">
         <a href="#">
           <img
-            className={` pt-6 ${animationClass} img-card`}
-            src={currentImage}
+            className={`rounded-t-lg pt-6 ${animationClass}`}
+            src={image}
             alt={title}
             style={{ backgroundColor: bgColor, paddingBottom: 100 }}
           />
         </a>
-        <div className="p-5 m-5 bg-white rounded-b-lg  ">
+        <div className="p-5 m-5 bg-white rounded-b-lg">
           <a href="#">
-            <p className="flex mb-2 text-sm font-semi-bold tracking-tight text-gray-900 text-left">
+            <p className="flex mb-2 text-sm font-semibold tracking-tight text-gray-900 text-left">
               {title}
             </p>
           </a>
