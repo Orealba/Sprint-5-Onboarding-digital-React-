@@ -31,7 +31,7 @@ export default function Card({
 
   useEffect(() => {
     if (isFirstRender) {
-      setIsFirstRender(false); // Desactiva la primera visualización
+      setIsFirstRender(false); 
     } else {
       setAnimationClass(direction === 'forward' ? 'image-exit-left' : 'image-exit-right');
 

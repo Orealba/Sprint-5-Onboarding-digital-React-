@@ -38,14 +38,14 @@ function App() {
 
   let nexStep = () => {
     if (step < tutorialData.length - 1) {
-      setDirection('forward');  // Indica que el paso es hacia adelante
+      setDirection('forward'); 
       setStep(step + 1);
     }
   };
 
   let prevStep = () => {
     if (step > 0) {
-      setDirection('backward'); // Indica que el paso es hacia atrás
+      setDirection('backward'); 
       setStep(step - 1);
     }
   };
