@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import './App.css';
 import Card from './components/Card';
 
@@ -11,6 +10,8 @@ interface TutorialData {
 }
 function App() {
   const [step, setStep] = useState<number>(0);
+  const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
+
   let tutorialData: TutorialData[] = [
     {
       title: 'Dedica muchas horas',
@@ -34,24 +35,29 @@ function App() {
       image: '../public/images/Meditation (1).svg',
     },
   ];
+
   let nexStep = () => {
     if (step < tutorialData.length - 1) {
+      setDirection('forward');  // Indica que el paso es hacia adelante
       setStep(step + 1);
     }
   };
 
   let prevStep = () => {
     if (step > 0) {
+      setDirection('backward'); // Indica que el paso es hacia atrás
       setStep(step - 1);
     }
-    
   };
-const handleStepChange = (index: number) => {
-      setStep(index);
-    };
+
+  const handleStepChange = (index: number) => {
+    setDirection(index > step ? 'forward' : 'backward');
+    setStep(index);
+  };
+
   return (
     <>
-      <div className="flex d-flex  bg-gray-100">
+      <div className="flex d-flex bg-gray-100">
         <Card
           image={tutorialData[step].image}
           title={tutorialData[step].title}
@@ -62,6 +68,7 @@ const handleStepChange = (index: number) => {
           step={step}
           totalSteps={tutorialData.length}
           onStepChange={handleStepChange}
+          direction={direction}
         />
       </div>
     </>

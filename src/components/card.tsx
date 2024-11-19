@@ -13,6 +13,7 @@ export default function Card({
   step,
   totalSteps,
   onStepChange,
+  direction,
 }: {
   title: string;
   description: string;
@@ -23,6 +24,7 @@ export default function Card({
   step: number;
   totalSteps: number;
   onStepChange: (index: number) => void;
+  direction: 'forward' | 'backward';
 }): JSX.Element {
   const [animationClass, setAnimationClass] = useState('');
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -31,16 +33,19 @@ export default function Card({
     if (isFirstRender) {
       setIsFirstRender(false); // Desactiva la primera visualización
     } else {
-      setAnimationClass('image-exit');
+      setAnimationClass(direction === 'forward' ? 'image-exit-left' : 'image-exit-right');
 
-      const timer = setTimeout(() => setAnimationClass('image-enter'), 500);
+      const timer = setTimeout(() => {
+        setAnimationClass(direction === 'forward' ? 'image-enter-right' : 'image-enter-left');
+      }, 500);
+
       return () => clearTimeout(timer);
     }
-  }, [step, image]);
+  }, [step, image, direction]);
 
   return (
     <div className="max-w-sm p-5">
-      <div className=" w-64 rounded-full shadow-lg relative">
+      <div className="w-64 rounded-full shadow-lg relative">
         <a href="#">
           <img
             className={`rounded-t-lg pt-6 ${animationClass}`}
